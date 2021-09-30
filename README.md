@@ -13,9 +13,6 @@ Running the command should return something similar to:
 
 Server is now running on your machine, open the address: http://127.0.0.1:8000  on a web browser to view the website
 
-(Note: as of the initial commit, opening http://127.0.0.1:8000 will not display anything with information,
-try the address http://127.0.0.1:8000/beach/ to view actual content.)
-
 
 Videos that prove to be extremely useful (django):
 
