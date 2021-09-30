@@ -17,10 +17,14 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
+     
     path('admin/', admin.site.urls),
-    #should be rerouted to the app
+   
+    #Reroute to an app
+
+    #Default path leads to home
+    path('', include('home.urls')),
     path('beach/', include('beach.urls'))
     
     #path('profile/', include('profile.urls'))
-    #path('portada/', include(''))
 ]

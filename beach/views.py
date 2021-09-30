@@ -4,7 +4,7 @@ from .models import Comment
 # Can map URL's to views.
 # Create your views here.
 
-def home(request):
+def display(request):
     context = {
         'comments': Comment.objects.all(),
         
