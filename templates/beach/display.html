@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 
 {% block content %}
+    {% for beach in beaches %}
+    <H1>{{ beach.name }}</H1>
+    {% endfor %}
     {% for comment in comments %}
     <article class="media content-section">
         <div class="media-body">
