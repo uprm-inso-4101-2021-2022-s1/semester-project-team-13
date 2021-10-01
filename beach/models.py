@@ -7,11 +7,7 @@ from django.contrib.auth.models import User
 #Models are tables that will be stored in a database
 #https://simpleisbetterthancomplex.com/tutorial/2016/07/22/how-to-extend-django-user-model.html#proxy
 
-
-class Beach(models.Model):
-    name = models.CharField(max_length = 60)
-    #img = models.ImageField()
-    CHOICE_REGIONS = (
+CHOICE_REGIONS = (
         ('N', 'North'),
         ('NE', 'North East'),
         ('E', 'East'),
@@ -21,29 +17,24 @@ class Beach(models.Model):
         ('W', 'West'),
         ('NW', 'North West'),
     )
+class Beach(models.Model):
+    name = models.CharField(max_length = 60)
+    #img = models.ImageField()
+    
     region = models.CharField(max_length = 2, choices=CHOICE_REGIONS) # N, NE, E, SE, S, SW, W, NW
     #Ratings
     swimming = models.PositiveIntegerField()
+    
     def __str__(self):
         return self.name
     
 
 class Profile(models.Model):
-    img = models.ImageField(upload_to='profile_pic', default='default_user_pic.jpg')
+    #img = models.ImageField(upload_to='profile_pic', default='default_user_pic.jpg')
     date_created = models.DateTimeField(default = timezone.now)
     user = models.ForeignKey(User, on_delete = models.CASCADE)
     bio = models.TextField(max_length=500, blank = True)
 
-    CHOICE_REGIONS = (
-        ('N', 'North'),
-        ('NE', 'North East'),
-        ('E', 'East'),
-        ('SE', 'South East'),
-        ('S', 'South'),
-        ('SW', 'South West'),
-        ('W', 'West'),
-        ('NW', 'North West'),
-    )
     region = models.CharField(max_length = 2, choices=CHOICE_REGIONS) # N, NE, E, SE, S, SW, W, NW
     def __str__(self):
         return 'Profile #' + str(self.user.id)
