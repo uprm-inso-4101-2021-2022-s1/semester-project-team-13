@@ -17,13 +17,14 @@ CHOICE_REGIONS = (
         ('W', 'West'),
         ('NW', 'North West'),
     )
+
+
 class Beach(models.Model):
     name = models.CharField(max_length = 60)
     #img = models.ImageField()
     
     region = models.CharField(max_length = 2, choices=CHOICE_REGIONS) # N, NE, E, SE, S, SW, W, NW
     #Ratings
-    swimming = models.PositiveIntegerField()
     
     def __str__(self):
         return self.name
@@ -52,6 +53,24 @@ class Comment(models.Model):
         def __str__(self):
             return 'Comment_#' + str(self.id) + '_' + self.beach.name
 
+class Rating(models.Model):
+    #Ratings
+    overall = models.PositiveIntegerField(null = True)
 
+    swim = models.PositiveIntegerField(null = True)
+    dive = models.PositiveIntegerField(null = True)
+    surf = models.PositiveIntegerField(null = True)
+    lounge = models.PositiveIntegerField(null = True)
+    boat = models.PositiveIntegerField(null = True)
+    isClean = models.PositiveIntegerField(null = True)
+    safety = models.PositiveIntegerField(null = True)
+    lifeguard = models.BooleanField(null = True)
+
+    #Rating belongs to beach:
+    
+    beach = models.OneToOneField(Beach, on_delete = models.CASCADE, null= True)
+
+    def __str__(self):
+            return 'Rating_' + str(self.beach.name)
 
     
