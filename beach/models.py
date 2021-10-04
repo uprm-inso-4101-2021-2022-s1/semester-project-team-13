@@ -31,7 +31,7 @@ class Beach(models.Model):
     
 
 class Profile(models.Model):
-    #img = models.ImageField(upload_to='profile_pic', default='default_user_pic.jpg')
+    img = models.ImageField(upload_to='profile_pic', default='default_user_pic.jpg')
     date_created = models.DateTimeField(default = timezone.now)
     user = models.ForeignKey(User, on_delete = models.CASCADE)
     bio = models.TextField(max_length=500, blank = True)

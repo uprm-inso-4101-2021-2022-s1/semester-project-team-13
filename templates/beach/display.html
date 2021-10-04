@@ -6,6 +6,9 @@
       <h1> Swimmy swim: {{ rating.swim}}</h1>
     {% endfor %}
 
+    {% for beach in beaches %}
+    <H1>{{ beach.name }}</H1>
+    {% endfor %}
     {% for comment in comments %}
     <article class="media content-section">
         <div class="media-body">
