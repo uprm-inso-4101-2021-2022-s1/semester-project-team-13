@@ -2,13 +2,22 @@
 
 {% block content %}
 
-    {% for rating in ratings %}
-      <h1> Swimmy swim: {{ rating.swim}}</h1>
-    {% endfor %}
+    
 
-    {% for beach in beaches %}
-    <H1>{{ beach.name }}</H1>
+<article class="media content-section">
+  <div class="media-body">
+    <div class="article-metadata">
+      <!-- {% for beach in beaches %} -->
+      <H1>{{ beaches.first | title}} (beach rating)</H1> 
+      <a>beach id</a>
+      <!-- {% endfor %} -->
+    </div>
+    {% for rating in ratings %}
+      <a> Swimmy swim: {{ rating.swim}}</a>
     {% endfor %}
+  </div>
+</article>
+    
     {% for comment in comments %}
     <article class="media content-section">
         <div class="media-body">
@@ -16,7 +25,7 @@
             <a class="mr-2" href="#">{{ comment.author }}</a>
             <small class="text-muted">{{ comment.date_posted|date:"F d, Y" }}</small>
           </div>
-          <h2><a class="article-title" href="#">{{ comment.id }}</a></h2>
+          <h3><a class="article-title" href="#">{{ comment.id }}</a></h3>
           <p class="article-content">{{ comment.content }}</p>
         </div>
       </article>
