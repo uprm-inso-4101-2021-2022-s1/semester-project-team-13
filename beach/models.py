@@ -21,7 +21,7 @@ CHOICE_REGIONS = (
 
 class Beach(models.Model):
     name = models.CharField(max_length = 60)
-    #img = models.ImageField()
+    img = models.ImageField(upload_to='beach_pic', null = True)
     
     region = models.CharField(max_length = 2, choices=CHOICE_REGIONS) # N, NE, E, SE, S, SW, W, NW
     #Ratings
@@ -31,7 +31,7 @@ class Beach(models.Model):
     
 
 class Profile(models.Model):
-    img = models.ImageField(upload_to='profile_pic', default='default_user_pic.jpg')
+    img = models.ImageField(upload_to='media/profile_pic', default='default_user_pic.jpg')
     date_created = models.DateTimeField(default = timezone.now)
     user = models.ForeignKey(User, on_delete = models.CASCADE)
     bio = models.TextField(max_length=500, blank = True)

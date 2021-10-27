@@ -1,7 +1,25 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>This is the Home Page!</h1>
+<h1>Top Beaches: </h1>
+
+<div>
+    {% for topRating in topOverallRatings %}
+    <article class="media content-section">
+        <div class="media-body">
+          <div class="article-metadata">
+            <a class="mr-2" href="beach/{{topRating.beach.name}}">{{ topRating.beach.name | title}}</a>
+            <div>
+                <img src="media/{{topRating.beach.img}}" alt="image not found" width="20%">
+            </div>
+            <small class="text-muted">{{ topRating.beach.region }}</small>
+          </div>
+          <h3><a class="article-title" href="#">Overall Rating: {{ topRating.overall }}/10</a></h3>
+        </div>
+      </article>
+  {% endfor %}
+</div>
+
 {% endblock content %}
 
 
