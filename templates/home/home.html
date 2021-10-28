@@ -8,13 +8,16 @@
     <article class="media content-section">
         <div class="media-body">
           <div class="article-metadata">
-            <a class="mr-2" href="beach/{{topRating.beach.name}}">{{ topRating.beach.name | title}}</a>
-            <div>
-                <img src="media/{{topRating.beach.img}}" alt="image not found" width="20%">
-            </div>
-            <small class="text-muted">{{ topRating.beach.region }}</small>
+            <h4><a class="mr-2" href="beach/{{topRating.beach.name}}">{{ topRating.beach.name | title}} {{ topRating.overall }}/10 </a> </h4>
+            <div><small class="text-muted">{{ topRating.beach.region }} {{beach.id}} # {{beach.comments}} reviews</small></div>
+             
           </div>
-          <h3><a class="article-title" href="#">Overall Rating: {{ topRating.overall }}/10</a></h3>
+          <div>
+            <img src="media/{{topRating.beach.img}}" alt="image not found" width="20%">
+          </div>
+          <div>
+            <p class="article-content">(top 3 activites)</p>
+          </div>
         </div>
       </article>
   {% endfor %}
