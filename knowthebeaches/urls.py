@@ -26,9 +26,10 @@ urlpatterns = [
 
     #Default path leads to home
     path('', include('home.urls')),
-    path('beach/', include('beach.urls'))
-    
-    #path('profile/', include('profile.urls'))
-]
-#adds image urls
-urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+    path('beach/', include('beach.urls')),
+    path('profile/', include('userProfile.urls'))
+]+ static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+
+

@@ -31,14 +31,14 @@ class Beach(models.Model):
     
 
 class Profile(models.Model):
-    img = models.ImageField(upload_to='media/profile_pic', default='default_user_pic.jpg')
+    img = models.ImageField(upload_to='profile_pic', null = True)
     date_created = models.DateTimeField(default = timezone.now)
     user = models.ForeignKey(User, on_delete = models.CASCADE)
     bio = models.TextField(max_length=500, blank = True)
 
     region = models.CharField(max_length = 2, choices=CHOICE_REGIONS) # N, NE, E, SE, S, SW, W, NW
     def __str__(self):
-        return 'Profile #' + str(self.user.id)
+        return self.user.get_username()
     
 class Comment(models.Model):
     
