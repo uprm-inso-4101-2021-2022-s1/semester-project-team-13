@@ -28,7 +28,7 @@ urlpatterns = [
    
     path('beach/', include('beach.urls')),
     path('profile/', include('userProfile.urls')),
-    path('/', include('home.urls'), name = "home"),
+    path('', include('home.urls'), name = "home"),
 ]
 if not settings.DEBUG:
      urlpatterns += static(
