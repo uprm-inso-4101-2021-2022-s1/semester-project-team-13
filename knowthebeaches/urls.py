@@ -25,11 +25,20 @@ urlpatterns = [
     #Reroute to an app
 
     #Default path leads to home
-    path('', include('home.urls')),
+   
     path('beach/', include('beach.urls')),
-    path('profile/', include('userProfile.urls'))
-]+ static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+    path('profile/', include('userProfile.urls')),
+    path('/', include('home.urls'), name = "home"),
+]
+if not settings.DEBUG:
+     urlpatterns += static(
+          settings.STATIC_URL,
+          document_root = settings.STATIC_ROOT
+     )
+
+urlpatterns += static(
+    settings.MEDIA_URL,
+    document_root=settings.MEDIA_ROOT
+)
 
 
