@@ -30,6 +30,7 @@
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
             <a class="dropdown-item" href="#">Overall</a>
             <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Swimming</a>
             <a class="dropdown-item" href="#">Snorkeling</a>
             <a class="dropdown-item" href="#">Diving</a>
             <a class="dropdown-item" href="#">Sailing</a>
@@ -72,16 +73,16 @@
         <div class="media-body">
           <div class="article-metadata">
             <h4><a class="mr-2" href="beach/{{topRating.beach.name}}">{{ topRating.beach.name | title}} {{ topRating.overall }}/10 </a> </h4>
-            <div><small class="text-muted">{{ topRating.beach.region }} {{beach.id}} # {{beach.comments.}} reviews</small></div>
+            <div><small class="text-muted">{{ topRating.beach.region }} {{beach.id}} # {{beach.comments.}} Reviews</small></div>
              <!-- beach id doesnt display, # of comments  doesnt display -->
           </div>
           <div>
             <img src="{{topRating.beach.img.url}}" alt="image not found" width="20%">
           </div>
           <div>
-            <p class="article-content">(Top 3 activites)</p>
+            <p class="article-content">Top 3 activites: <br> Swimming 🏊 <br> Snorkeling 🤿 <br> Kayaking 🛶 </p>
             <!-- show top 3 activities -->
-            <p class="article-content"><a href="/#">📍 </a> | <a href="/#">💾</a></p>
+            <p class="article-content"><a href="/#">📍 Location </a> | <a href="/#">💾</a></p>
             <!-- location link can be a variable -->
             <!-- save icon (bucket list) can be a button to add that beach to a list that belongs to the user's bucket list -->
           </div>
