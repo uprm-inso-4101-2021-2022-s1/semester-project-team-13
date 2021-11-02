@@ -8,10 +8,54 @@
       filters
     </div>
     <div>
-      <p class="article content"> sort by: (top/low) | (score type) | (region) </p>
-      <!-- each () could be a drop down select type button -->
-      <!-- score types: overall, or specific activity -->
-      <!-- region select is optional (any n nw w sw s se e ne) -->
+      <!-- button group starts here -->
+      <div class="btn-group" role="group" aria-label="Button Group with Dropdown">
+        <!-- FOR TOP/LOW -->
+        <div class="btn-group">
+          <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Top/Low
+          </button>
+          
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <a class="dropdown-item" href="#">Top</a>
+            <a class="dropdown-item" href="#">Low</a>
+          </div>
+        </div>
+        <!-- FOR SCORE TYPE -->
+        <div class="btn-group">
+          <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Score Type
+          </button>
+          
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+            <a class="dropdown-item" href="#">Overall</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Snorkeling</a>
+            <a class="dropdown-item" href="#">Diving</a>
+            <li class="active"><a href="#">*PENDING OTHERS*</a></li>
+
+          </div>
+        </div>
+
+        <!-- FOR REGION -->
+        <div class="btn-group">
+          <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Region
+          </button>
+          
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
+            <a class="dropdown-item" href="#">Any</a>
+            <a class="dropdown-item" href="#">N</a>
+            <a class="dropdown-item" href="#">NW</a>
+            <a class="dropdown-item" href="#">W</a>
+            <a class="dropdown-item" href="#">SW</a>
+            <a class="dropdown-item" href="#">S</a>
+            <a class="dropdown-item" href="#">SE</a>
+            <a class="dropdown-item" href="#">E</a>
+            <a class="dropdown-item" href="#">NE</a>  
+          </div>  
+      </div>
+
     </div>
   </div>
 </article>
