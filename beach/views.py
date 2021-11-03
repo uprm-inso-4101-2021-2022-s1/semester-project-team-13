@@ -1,6 +1,7 @@
 from os import name
 from django.shortcuts import render
 from .models import Comment, Beach, Rating
+
 # Can map URL's to views.
 commentAmount = 3
 def display(request, beachName='Jobos'):
@@ -11,3 +12,5 @@ def display(request, beachName='Jobos'):
         #'comments': Comment.objects.all()[:69],
     }
     return render(request, 'beach/display.html', context)
+
+
