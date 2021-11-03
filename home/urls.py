@@ -8,5 +8,6 @@ urlpatterns = [
     path("reverseList", views.reverseList),
     path("undoReverse", views.undoReverse),
     path("sortBy/<type>", views.sortBy),
-    path("sortByRegion/<region>", views.sortByRegion)
+    path("sortByRegion/<region>", views.sortByRegion),
+    path("showAllRegions", views.showAllRegions)
 ]
