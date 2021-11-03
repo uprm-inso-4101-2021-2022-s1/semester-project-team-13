@@ -17,8 +17,13 @@
           </button>
           
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-            <a class="dropdown-item" href="#">Top</a>
-            <a class="dropdown-item" href="#">Low</a>
+            <form action="undoReverse">
+              <button class="dropdown-item" type="btn">Top</button>
+            </form>
+            <form action="reverseList">
+              <button class="dropdown-item" type="btn">Low</button>
+            </form>
+            
           </div>
         </div>
         <!-- FOR SCORE TYPE -->
@@ -28,16 +33,43 @@
           </button>
           
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-            <a class="dropdown-item" href="#">Overall</a>
+            <form action="sortBy/overall">
+              <button class="dropdown-item" type="btn">Overall</button>
+            </form>
+            
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Swimming</a>
-            <a class="dropdown-item" href="#">Snorkeling</a>
-            <a class="dropdown-item" href="#">Diving</a>
-            <a class="dropdown-item" href="#">Sailing</a>
-            <a class="dropdown-item" href="#">Fishing</a>
-            <a class="dropdown-item" href="#">Kayaking</a>
-            <a class="dropdown-item" href="#">Surfing</a>
-            <li class="active"><a href="#">*PENDING OTHERS*</a></li>
+
+            <form action="sortBy/swim">
+              <button class="dropdown-item" type="btn">Swimming</button>
+            </form>
+
+            <form action="sortBy/dive">
+              <button class="dropdown-item" type="btn">Diving</button>
+            </form>
+
+            <form action="sortBy/surf">
+              <button class="dropdown-item" type="btn">Surfing</button>
+            </form>
+
+            <form action="sortBy/lounge">
+              <button class="dropdown-item" type="btn">Lounging</button>
+            </form>
+
+            <form action="sortBy/boat">
+              <button class="dropdown-item" type="btn">Boating</button>
+            </form>
+
+            <form action="sortBy/isClean">
+              <button class="dropdown-item" type="btn">Cleanness</button>
+            </form>
+
+            <form action="sortBy/safety">
+              <button class="dropdown-item" type="btn">Safety</button>
+            </form>
+
+            <form action="sortBy/lifeguard">
+              <button class="dropdown-item" type="btn">Has lifeguard</button>
+            </form>
 
           </div>
         </div>
@@ -49,15 +81,42 @@
           </button>
           
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
-            <a class="dropdown-item" href="#">Any</a>
-            <a class="dropdown-item" href="#">N</a>
-            <a class="dropdown-item" href="#">NW</a>
-            <a class="dropdown-item" href="#">W</a>
-            <a class="dropdown-item" href="#">SW</a>
-            <a class="dropdown-item" href="#">S</a>
-            <a class="dropdown-item" href="#">SE</a>
-            <a class="dropdown-item" href="#">E</a>
-            <a class="dropdown-item" href="#">NE</a>  
+
+            <form action="showAllRegions">
+              <button class="dropdown-item" type="btn">Any</button>
+            </form>
+            
+            <form action="sortByRegion/N">
+              <button class="dropdown-item" type="btn">N</button>
+            </form>
+            
+            <form action="sortByRegion/NW">
+              <button class="dropdown-item" type="btn">NW</button>
+            </form>
+        
+            <form action="sortByRegion/W">
+              <button class="dropdown-item" type="btn">W</button>
+            </form>
+
+            <form action="sortByRegion/SW">
+              <button class="dropdown-item" type="btn">SW</button>
+            </form>
+
+            <form action="sortByRegion/S">
+              <button class="dropdown-item" type="btn">S</button>
+            </form>
+
+            <form action="sortByRegion/SE">
+              <button class="dropdown-item" type="btn">SE</button>
+            </form>
+
+            <form action="sortByRegion/E">
+              <button class="dropdown-item" type="btn">E</button>
+            </form>
+
+            <form action="sortByRegion/NE">
+              <button class="dropdown-item" type="btn">NE</button>
+            </form>
           </div>  
       </div>
 

@@ -42,3 +42,9 @@ def sortByRegion(request, region):
     global topOverallRatings
     topOverallRatings = Rating.objects.filter(beach__region=region)
     return HttpResponse("""<html><script>window.location.replace('/');</script></html>""")
+
+def showAllRegions(request):
+    global topOverallRatings
+    topOverallRatings = Rating.objects.order_by('-overall')
+    return HttpResponse("""<html><script>window.location.replace('/');</script></html>""")
+    
