@@ -73,7 +73,7 @@
         <div class="media-body">
           <div class="article-metadata">
             <h4><a class="mr-2" href="beach/{{topRating.beach.name}}">{{ topRating.beach.name | title}} {{ topRating.overall }}/10 </a> </h4>
-            <div><small class="text-muted">{{ topRating.beach.region }} {{beach.id}} # {{beach.comments.}} Reviews</small></div>
+            <div><small class="text-muted">{{ topRating.beach.region }} {{beach.id}} # {{ beachesCommentAmount|get:topRating.beach.name}} Reviews</small></div>
              <!-- beach id doesnt display, # of comments  doesnt display -->
           </div>
           <div>

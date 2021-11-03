@@ -5,9 +5,16 @@ from beach.models import Comment, Beach, Rating
 # Create your views here.
 
 def home(request):
+
+    beachesCommentAmount = {}
+    topOverallRatings = Rating.objects.order_by('-overall')
+    for rating in topOverallRatings:
+        # Key -> Beach name (str), Value = comment amount (int)
+        beachesCommentAmount[str(rating.beach.name)] = Comment.objects.filter(beach__name=rating.beach.name).count()
+
     context = {
         #sort by overall beach rating
-        'topOverallRatings' : Rating.objects.order_by('-overall')
-        
+        'topOverallRatings' : topOverallRatings,
+        'beachesCommentAmount' : beachesCommentAmount
     }
     return render(request, 'home/home.html', context)
