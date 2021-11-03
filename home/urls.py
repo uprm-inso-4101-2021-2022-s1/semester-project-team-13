@@ -5,5 +5,8 @@ from . import views
 #URLConf
 urlpatterns = [
     path('', views.home),
-    
+    path("reverseList", views.reverseList),
+    path("undoReverse", views.undoReverse),
+    path("sortBy/<type>", views.sortBy),
+    path("sortByRegion/<region>", views.sortByRegion)
 ]
