@@ -28,7 +28,7 @@ urlpatterns = [
    
     path('beach/', include('beach.urls'), name = 'beach'),
     path('profile/', include('userProfile.urls'), name = 'profile'),
-    path('register/', include('users.urls'), name = 'register'),
+    path('users/', include('users.urls'), name = 'users'),
     path('', include('home.urls'), name = 'home'),
 ]
 if not settings.DEBUG:
