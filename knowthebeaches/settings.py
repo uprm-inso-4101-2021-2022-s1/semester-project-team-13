@@ -32,6 +32,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    #pip install django-crispy-forms
+    'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -41,7 +43,8 @@ INSTALLED_APPS = [
     'beach.apps.BeachConfig',
     'home.apps.HomeConfig',
     'userProfile.apps.UserprofileConfig',
-    'users.apps.UsersConfig'
+    'users.apps.UsersConfig',
+  
 
 ]
 
@@ -133,3 +136,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
