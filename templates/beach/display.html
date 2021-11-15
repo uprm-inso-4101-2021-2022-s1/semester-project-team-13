@@ -23,7 +23,7 @@
         <div class="media-body">
           <div class="article-metadata">
                   <!-- Special href to redirect to user profile -->
-            <a class="mr-2" href="//{{ request.get_host }}/profile/{{ comment.author }}">{{ comment.author }}</a>
+            <a class="mr-2" href="{% url 'profile' comment.author %}">{{ comment.author }}</a>
             <small class="text-muted">{{ comment.date_posted|date:"F d, Y" }}</small>
           </div>
           <!-- <h3><a class="article-title" href="#">{{ comment.id }}</a></h3> -->

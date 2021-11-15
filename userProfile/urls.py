@@ -5,5 +5,5 @@ from . import views
 
 #URLConf
 urlpatterns = [
-    path('<username>/', views.userProfile)
+    path('<username>/', views.userProfile, name = 'profile')
 ]

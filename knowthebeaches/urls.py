@@ -26,9 +26,10 @@ urlpatterns = [
 
     #Default path leads to home
    
-    path('beach/', include('beach.urls')),
-    path('profile/', include('userProfile.urls')),
-    path('', include('home.urls'), name = "home"),
+    path('beach/', include('beach.urls'), name = 'beach'),
+    path('profile/', include('userProfile.urls'), name = 'profile'),
+    path('users/', include('users.urls'), name = 'users'),
+    path('', include('home.urls'), name = 'home'),
 ]
 if not settings.DEBUG:
      urlpatterns += static(
