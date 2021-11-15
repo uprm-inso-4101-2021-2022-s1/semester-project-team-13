@@ -19,7 +19,7 @@ def home(request):
     context = {
         #sort by overall beach rating
         'topOverallRatings' : topOverallRatings,
-        'beachesCommentAmount' : beachesCommentAmount
+        'beachesCommentAmount' : beachesCommentAmount,
     }
     return render(request, 'home/home.html', context)
 

@@ -9,6 +9,7 @@ def display(request, beachName='Jobos'):
         'ratings' : Rating.objects.filter(beach__name=beachName),
         'comments': Comment.objects.filter(beach__name=beachName)[:commentAmount], #front-end needs button that modifies the commentAmount variable
         'beaches': Beach.objects.filter(name=beachName),
+        'request' : request
         #'comments': Comment.objects.all()[:69],
     }
     return render(request, 'beach/display.html', context)

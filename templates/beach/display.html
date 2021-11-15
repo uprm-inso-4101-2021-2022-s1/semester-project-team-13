@@ -9,11 +9,11 @@
     <div class="article-metadata">
       <!-- {% for beach in beaches %} -->
       <H1>{{ beaches.first | title}} (Beach Rating)</H1> 
-      <a>Beach id</a>
+      <img src="{{beaches.first.img.url}}" alt="image not found" width="70%">
       <!-- {% endfor %} -->
     </div>
     {% for rating in ratings %}
-      <a> Swimmy swim: {{ rating.swim}}</a>
+      <a> Swimming: {{ rating.swim}}</a>
     {% endfor %}
   </div>
 </article>
@@ -22,10 +22,11 @@
     <article class="media content-section">
         <div class="media-body">
           <div class="article-metadata">
-            <a class="mr-2" href="#">{{ comment.author }}</a>
+                  <!-- Special href to redirect to user profile -->
+            <a class="mr-2" href="//{{ request.get_host }}/profile/{{ comment.author }}">{{ comment.author }}</a>
             <small class="text-muted">{{ comment.date_posted|date:"F d, Y" }}</small>
           </div>
-          <h3><a class="article-title" href="#">{{ comment.id }}</a></h3>
+          <!-- <h3><a class="article-title" href="#">{{ comment.id }}</a></h3> -->
           <p class="article-content">{{ comment.content }}</p>
         </div>
       </article>
