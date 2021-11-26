@@ -6,5 +6,5 @@ from .models import Beach
 #URLConf
 urlpatterns = [
     path('', views.display),
-    path('<beachName>/', views.display)
+    path('<beachName>/', views.display, name='beach')
 ]
