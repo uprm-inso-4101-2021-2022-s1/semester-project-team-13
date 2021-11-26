@@ -5,5 +5,6 @@ from . import views
 
 #URLConf
 urlpatterns = [
-    path('<username>/', views.userProfile, name = 'profile')
+    path('<username>/', views.userProfile, name = 'profile'),
+    path("<username>/remove/<beachName>", views.remove)
 ]
