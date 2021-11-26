@@ -35,8 +35,9 @@ class Profile(models.Model):
     date_created = models.DateTimeField(default = timezone.now)
     user = models.ForeignKey(User, on_delete = models.CASCADE)
     bio = models.TextField(max_length=500, blank = True)
-
+    bucketList = models.TextField(max_length=1000, blank = True)
     region = models.CharField(max_length = 2, choices=CHOICE_REGIONS) # N, NE, E, SE, S, SW, W, NW
+    
     def __str__(self):
         return self.user.get_username()
     
@@ -69,7 +70,7 @@ class Rating(models.Model):
     #Rating belongs to beach:
     
     beach = models.OneToOneField(Beach, on_delete = models.CASCADE, null= True)
-
+    
     def __str__(self):
             return 'Rating_' + str(self.beach.name)
 
