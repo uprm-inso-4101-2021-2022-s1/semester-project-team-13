@@ -7,23 +7,34 @@
 <article class="media content-section">
   <div class="media-body">
     <div class="article-metadata">
-      <!-- {% for beach in beaches %} -->
-      <H1>{{ beaches.first | title}} (Beach Rating)</H1> 
+      
+      <p><h1>{{ beaches.first | title}} {{rating.overall}}/10</h1></p>
       <img src="{{beaches.first.img.url}}" alt="image not found" width="70%">
-      <!-- {% endfor %} -->
+      
     </div>
     {% for rating in ratings %}
-      <a> Swimming: {{ rating.swim}}</a>
+      <div><a> Swimming: {{ rating.swim}}</a></div>
+      <div><a> Diving: {{ rating.dive}}</a></div>
+      <div><a> Surfing: {{ rating.surf}}</a></div>
+      <div><a> Lounging: {{ rating.lounge}}</a></div>
+      <div><a> Boating: {{ rating.boat}}</a></div>
+      <div><a> Cleanliness: {{ rating.isClean}}</a></div>
+      <div><a> Safety: {{ rating.safety}}</a></div>
+      <div><a> Lifegaurd: {{ rating.lifeguard}}</a></div>
     {% endfor %}
+    <a href="/#">📍 Location </a>
   </div>
 </article>
-    
+<!--start nav bar with (write a review | add to bucket list)  buttons -->
+
+<!-- end nav bar -->
     {% for comment in comments %}
     <article class="media content-section">
         <div class="media-body">
           <div class="article-metadata">
                   <!-- Special href to redirect to user profile -->
             <a class="mr-2" href="{% url 'profile' comment.author %}">{{ comment.author }}</a>
+            <a>(overall rating)/10</a>
             <small class="text-muted">{{ comment.date_posted|date:"F d, Y" }}</small>
           </div>
           <!-- <h3><a class="article-title" href="#">{{ comment.id }}</a></h3> -->
