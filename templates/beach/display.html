@@ -22,12 +22,19 @@
       <div><a> Safety: {{ rating.safety}}</a></div>
       <div><a> Lifegaurd: {{ rating.lifeguard}}</a></div>
     {% endfor %}
-    <a href="/#">📍 Location </a>
   </div>
 </article>
-<!--start nav bar with (write a review | add to bucket list)  buttons -->
 
+<!--start nav bar with 2 buttons :  (write a review | add to bucket list) -->
+<article class="media content-section">
+  <div class="media-body">
+    <div class="article-metadata">
+      Write a review | add beach to bucket list | <a href="/#">📍 Location </a>
+    </div>
+  </div>
+</article>
 <!-- end nav bar -->
+
     {% for comment in comments %}
     <article class="media content-section">
         <div class="media-body">
