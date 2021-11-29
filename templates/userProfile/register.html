@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    
+<head>
+    <title>Register</title>
+    <!-- <link rel="stylesheet" type="text/css" href ="css/bootstrap.css"> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+</head>
+
+<body>
+
+<div class="container text-white" style="background-image: url(https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.newyorklatinculture.com%2Ftravel%2Fcaribbean%2Fpuerto-rico%2Fmetro%2Fcarolina%2F&psig=AOvVaw07dwskuJOmE32vUQwEkC2Y&ust=1637034251264000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCKiEyv65mfQCFQAAAAAdAAAAABAD);">
+    
+    <div class="d-flex justify-content-center">
+        <!-- "row justify-content-md-center" -->
+        
+        <div class="col d-flex flex-column justify-content-center align-items-center">
+
+        <div class="row col-md-3.5" style="background-color:rgb(18, 148, 223); ">
+            <div class="col-md-auto" >
+                <h3>Sign up</h3>
+                <br>
+            </div>
+        </div>
+        <!-- <div class="col d-flex flex-column justify-content-center align-items-center"> -->
+
+        <!-- <div class="row"> -->
+
+    
+            <div class="col-lg-4">
+                <div id="ui">
+                    <form class="form-group" method="POST" action="" style="border:20px solid rgb(18, 148, 223); background-color: rgb(18, 148, 223); ">
+                        <div class="row">
+                            {% csrf_token %} 
+
+                            <div class="col-lg-8">
+                                {% csrf_token %} 
+
+                                <!-- <input type="text" name="username" class="form-control" placeholder="Username">  -->
+                                {{form.username.label}}
+                                {{form.username}}
+                            </div>
+
+                            <div class="col-lg-8">
+                                {% csrf_token %} 
+
+                                <!-- <input type="email" name="email" class="form-control" placeholder="Email"> -->
+                                {{form.email.label}}
+                                {{form.email}}
+                            </div>
+
+                            <div class="col-lg-8">
+                            {% csrf_token %} 
+
+                                <!-- <input type="password" name="password1" class="form-control" placeholder="Password"> -->
+                                {{form.password1.label}}
+                                {{form.password1}}
+
+                            </div>
+
+                            <div class="col-lg-8">
+                            {% csrf_token %} 
+
+                                <!-- <input type="password" name="password1" class="form-control" placeholder="Repeat your password"> -->
+                                {{form.password2.label}}
+                                {{form.password2}}
+                            </div>
+                        </div>
+                        <div class="row col-lg-auto">
+                            <div class="mt-4">
+                                <div class="d-flex justify-content-center links">
+                                    Already have an account? login
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row col-lg-4">
+
+                            <input type="submit" name="Create User" value="Submit"> 
+                        </div>
+                    </form>
+                </div>
+            </div>
+        <!-- </div> -->
+    </div>
+</div> 
+
+<script>
+    var form_fields = document.getElementsByTagName('input')
+    form_fields[2].placeholder='ex. beach_lover ;)';
+    form_fields[4].placeholder='Email...';
+    form_fields[6].placeholder='Password...';
+    form_fields[8].placeholder='Repeat password...';
+
+
+    for (var field in form_fields) {
+        form_fields[field].className += ' form-control'
+    }
+</script>
+
+</body>
+</html>     

@@ -16,7 +16,28 @@
       <a> Swimming: {{ rating.swim}}</a>
     {% endfor %}
   </div>
+
 </article>
+
+<article class="media content-section">
+  <div class="media-body">
+
+    <button class="btn btn-info " type="button" id="MenuButton1">
+      Write a review
+    </button>
+
+    <a action="/writeReview">
+      <button class="btn btn-info " type="button" id="MenuButton2">
+        Add to Bucket List
+      </button>
+    </a>
+    
+    <button class="btn btn-outline-info" type="button" id="MenuButton3">
+      Location 📍
+    </button>
+  </div>
+</article>
+
     
     {% for comment in comments %}
     <article class="media content-section">
