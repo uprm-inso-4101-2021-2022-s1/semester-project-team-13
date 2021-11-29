@@ -23,18 +23,31 @@
       <div><a> Lifegaurd: {{ rating.lifeguard}}</a></div>
     {% endfor %}
   </div>
+
 </article>
 
-<!--start nav bar with 2 buttons :  (write a review | add to bucket list) -->
 <article class="media content-section">
   <div class="media-body">
-    <div class="article-metadata">
-      Write a review | add beach to bucket list | <a href="/#">📍 Location </a>
-    </div>
+
+    <button class="btn btn-info " type="button" id="MenuButton1">
+      Write a review
+    </button>
+
+    <a action="/writeReview">
+      <button class="btn btn-info " type="button" id="MenuButton2">
+        Add to Bucket List
+      </button>
+    </a>
+    
+    <button class="btn btn-outline-info" type="button" id="MenuButton3">
+      Location 📍
+    </button>
   </div>
 </article>
-<!-- end nav bar -->
 
+
+
+    
     {% for comment in comments %}
     <article class="media content-section">
         <div class="media-body">
