@@ -41,3 +41,4 @@ def average(request, beachName):
     currentBeach.save()
     return HttpResponse("""<html><script>window.location.replace('/beach/""" + beachName + """/');</script></html>""")
 
+
