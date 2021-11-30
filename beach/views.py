@@ -6,9 +6,8 @@ from .models import Comment, Beach, Rating
 commentAmount = 3
 def display(request, beachName='Jobos'):
     context = {
-        'ratings' : Rating.objects.filter(beach__name=beachName),
         'comments': Comment.objects.filter(beach__name=beachName)[:commentAmount], #front-end needs button that modifies the commentAmount variable
-        'beaches': Beach.objects.filter(name=beachName),
+        'beach': Beach.objects.filter(name=beachName).first,
         'request' : request
         #'comments': Comment.objects.all()[:69],
     }

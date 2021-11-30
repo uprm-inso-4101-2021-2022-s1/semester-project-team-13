@@ -18,7 +18,7 @@ def userProfile(request, username='jeremy'): #if profile ID doesn't exist we mus
     context = {
         #sort by overall beach rating
         'profile': Profile.objects.filter(user__username=username)[0],
-        'bucketList': Rating.objects.filter(beach__name__in=bList)
+        'bucketList': Beach.objects.filter(name__in=bList)
     }
     return render(request, 'userProfile/userProfile.html', context)
 

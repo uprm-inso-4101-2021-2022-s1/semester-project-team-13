@@ -8,20 +8,18 @@
   <div class="media-body">
     <div class="article-metadata">
       
-      <p><h1>{{ beaches.first | title}} {{rating.overall}}/10</h1></p>
-      <img src="{{beaches.first.img.url}}" alt="image not found" width="70%">
+      <p><h1>{{ beach | title}} {{beach.overallRating}}/10</h1></p>
+      <img src="{{beach.img.url}}" alt="image not found" width="70%">
       
     </div>
-    {% for rating in ratings %}
-      <div><a> Swimming: {{ rating.swim}}</a></div>
-      <div><a> Diving: {{ rating.dive}}</a></div>
-      <div><a> Surfing: {{ rating.surf}}</a></div>
-      <div><a> Lounging: {{ rating.lounge}}</a></div>
-      <div><a> Boating: {{ rating.boat}}</a></div>
-      <div><a> Cleanliness: {{ rating.isClean}}</a></div>
-      <div><a> Safety: {{ rating.safety}}</a></div>
-      <div><a> Lifegaurd: {{ rating.lifeguard}}</a></div>
-    {% endfor %}
+      <div><a> Swimming: {{ beach.swimRating}}</a></div>
+      <div><a> Diving: {{ beach.diveRating}}</a></div>
+      <div><a> Surfing: {{ beach.surfRating}}</a></div>
+      <div><a> Lounging: {{ beach.loungeRating}}</a></div>
+      <div><a> Boating: {{ beach.boatRating}}</a></div>
+      <div><a> Cleanliness: {{ beach.isCleanRating}}</a></div>
+      <div><a> Safety: {{ beach.safetyRating}}</a></div>
+      <div><a> Lifeguard: {{ beach.lifeguardRating}}</a></div>
   </div>
 
 </article>

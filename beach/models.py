@@ -17,7 +17,9 @@ CHOICE_REGIONS = (
         ('W', 'West'),
         ('NW', 'North West'),
     )
-
+CHOICE_AVAILABLE = (
+    ('Yes', 'Yes'), 
+    ('No', 'No'))
 
 class Beach(models.Model):
     name = models.CharField(max_length = 60)
@@ -26,6 +28,17 @@ class Beach(models.Model):
     region = models.CharField(max_length = 2, choices=CHOICE_REGIONS) # N, NE, E, SE, S, SW, W, NW
     #Ratings
     
+    overallRating = models.DecimalField(max_digits=3, decimal_places=1, null = True)
+    swimRating = models.DecimalField(max_digits=3, decimal_places=1, null = True)
+    diveRating = models.DecimalField(max_digits=3, decimal_places=1, null = True)
+    surfRating = models.DecimalField(max_digits=3, decimal_places=1, null = True)
+    loungeRating = models.DecimalField(max_digits=3, decimal_places=1, null = True)
+    boatRating = models.DecimalField(max_digits=3, decimal_places=1, null = True)
+    isCleanRating = models.DecimalField(max_digits=3, decimal_places=1, null = True)
+    safetyRating = models.DecimalField(max_digits=3, decimal_places=1, null = True)
+    
+    lifeguardRating = models.CharField(max_length = 3, choices=CHOICE_AVAILABLE, default= 'No')
+
     def __str__(self):
         return self.name
     
@@ -57,7 +70,6 @@ class Comment(models.Model):
 class Rating(models.Model):
     #Ratings
     overall = models.PositiveIntegerField(null = True)
-
     swim = models.PositiveIntegerField(null = True)
     dive = models.PositiveIntegerField(null = True)
     surf = models.PositiveIntegerField(null = True)
@@ -65,13 +77,13 @@ class Rating(models.Model):
     boat = models.PositiveIntegerField(null = True)
     isClean = models.PositiveIntegerField(null = True)
     safety = models.PositiveIntegerField(null = True)
-    lifeguard = models.BooleanField(null = True)
-
+    lifeguard = models.CharField(max_length = 3, choices=CHOICE_AVAILABLE, default='No')
     #Rating belongs to beach:
     
-    beach = models.OneToOneField(Beach, on_delete = models.CASCADE, null= True)
+    author = models.ForeignKey(User, on_delete = models.CASCADE, null = True)
+    beach = models.ForeignKey(Beach, on_delete = models.CASCADE, null= True)
     
     def __str__(self):
-            return 'Rating_' + str(self.beach.name)
+            return 'Rating_' + str(self.beach.name) + '_' + str(self.author.get_username())
 
     
