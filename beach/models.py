@@ -81,6 +81,8 @@ class Comment(models.Model):
 
 class Rating(models.Model):
     #Ratings
+    date_posted = models.DateTimeField(default = timezone.now)
+    
     overall = models.PositiveIntegerField(null = True, default=10, choices=CHOICE_NUM)
     swim = models.PositiveIntegerField(blank = True, null=True, choices=CHOICE_NUM)
     dive = models.PositiveIntegerField(blank= True, null = True, choices=CHOICE_NUM)
