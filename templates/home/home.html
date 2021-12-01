@@ -139,7 +139,10 @@
              <!-- beach id doesnt display, # of comments  doesnt display -->
           </div>
           <div>
-            <img src="{{beach.img.url}}" alt="image not found" width="45%" align="right"> Top 3 activites: <br> Swimming 🏊 <br> Diving 🤿 <br> Surfing 🏄‍♀️ <span> </p>
+            <img src="{{beach.img.url}}" alt="image not found" width="45%" align="right"> Top 3 Qualities: 
+            {% for activity in beachesTopActivities|get:beach.name%}
+              <br> {{activity}}
+            {% endfor %}
           <!-- location link can be a variable -->
           <!-- save icon (bucket list) can be a button to add that beach to a list that belongs to the user's bucket list -->
           </div>

@@ -8,6 +8,7 @@ from userProfile import views as profileView
 #URLConf
 urlpatterns = [
     path('', views.home, name = 'home'),
+    path('about/', views.about, name = 'about'),
     path("reverseList", views.reverseList),
     path("undoReverse", views.undoReverse),
     path("sortBy/<type>", views.sortBy),
