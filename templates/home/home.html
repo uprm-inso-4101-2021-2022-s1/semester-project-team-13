@@ -145,16 +145,16 @@
           </div>
           <div>
             
-              
+            <div class="form-inline">
               <form class="form-inline" role="form" action="add/{{beach.name}}">
                 <div class="form-group">
                   <button class="btn btn-outline-info" type="btn">💾</button>
                 </div>
-                <a class="article-content"><a href="/#">
-                  <button style="margin: 3px" class="btn btn-outline-info" type="btn"> 📍 </button> </a> </a>
               </form>
-
-            <!-- <form class="form-inline" role="form" action="remove/{{beach.name}}">
+              <a class="article-content"><a href="/#">
+                  <button style="margin: 3px" class="btn btn-outline-info" type="btn"> 📍 </button> </a> </a>
+            </div>
+                  <!-- <form class="form-inline" role="form" action="remove/{{beach.name}}">
               <a class="mr-2" href="{% url 'beach' beach.name %}">{{ beach.name | title}} {{ beach.overallRating }}/10 </a>
               <div class="form-group">
                 <button class="btn btn-info" type="btn">🗑️</button>

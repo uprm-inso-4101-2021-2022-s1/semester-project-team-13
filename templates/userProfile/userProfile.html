@@ -45,21 +45,23 @@
           <h4>Recent Reviews</h4>
         </div>  
           <!--  for 5 recent comments  -->
+          {% for rating in recentRatings %}
             <article class="media content-section">
               <div class="media-body">
                 <div class="article-metadata">
-                  <p><b>For <a class="mr-2" href="">(beach):</a></b></p>
+                  <p><b>For <a class="mr-2" href="">{{rating.beach}}:</a></b></p>
                   <!-- need beach -->
-                  <a class="mr-2" href="">{{ profile.user.username}}</a>
-                  <a>(overall rating)/10</a>
+                  <a class="mr-2" href="">{{profile.user.username}}</a>
+                  <a>{{rating.overall}}/10</a>
                   <!-- need rating -->
-                  <small class="text-muted">(date)</small>
+                  <small class="text-muted">{{rating.date_posted}}</small>
                   <!-- need date -->
                 </div>
-                <p class="article-content">(content)</p> 
+                <p class="article-content"> {{ recentComments | get:rating.id }}</p>
                 <!-- need comment content -->
               </div>
             </article>
+          {% endfor %}
           <!--  endfor  -->
           
       </div>

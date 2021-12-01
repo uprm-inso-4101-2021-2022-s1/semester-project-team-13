@@ -29,24 +29,35 @@
 <article class="media content-section">
   <div class="media-body">
     <a data-toggle = "modal" data-target = "#reviewModal">
-      <form action="{% url 'beach' beach.name %}review" class = "form-inline" role = "form">
-      <div class = "form-group">
-        <button class="btn btn-info " type="button" id="MenuButton1">
-          Write a review
-        </button>
-
-        <a action="/writeReview">
-          <button style="margin: 5px;" class="btn btn-info " type="button" id="MenuButton2">
-            Add to Bucket List
+      <div class="form-inline">
+        <form action="{% url 'beach' beach.name %}review" class = "form-inline" role = "form">
+        <div class = "form-group">
+          <button class="btn btn-info " type="button" id="MenuButton1">
+            Write a review
           </button>
-        </a>
-        
-        <button class="btn btn-outline-info" type="button" id="MenuButton3">
-          Location 📍
-        </button>
+
+          <!-- <a action="{% url 'beach' beach.name %}add">
+            <button style="margin: 5px;" class="btn btn-info " type="button" id="MenuButton2">
+              Add to Bucket List
+            </button>
+          </a> -->
+
+          <a action="{% url 'beach' beach.name %}add"></a>
+            <button class="btn btn-info" type="button" id="MenuButton3">
+              Location 📍
+            </button>
+          </a>
+        </div>
+        </form>
       </div>
-      </form>
     </a>
+
+    <form action="{% url 'beach' beach.name %}add" class="form-inline" role="form">
+      <div class="form-group">
+        <button style="margin: 6px;" class="btn btn-outline-info" type="btn">ㅤㅤAdd to Bucket Listㅤㅤ</button>
+      </div>
+    </form>
+
   </div>
 </article>
 

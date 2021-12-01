@@ -1,7 +1,7 @@
 from os import name
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render
-from .models import Comment, Beach, Rating
+from .models import Comment, Beach, Rating, Profile
 from .forms import CommentForm, RatingForm
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
@@ -148,4 +148,11 @@ def average(request, beachName):
     currentBeach.save()
     return HttpResponse("""<html><script>window.location.replace('/beach/""" + beachName + """/');</script></html>""")
 
-
+@login_required
+def add(request, beachName):
+    currentUser = request.user
+    userProfile = Profile.objects.get(user__username=currentUser.username)
+    if(userProfile.bucketList.rfind(beachName) == -1):
+        userProfile.bucketList += beachName + ","
+        userProfile.save()
+    return HttpResponse("""<html><script>window.location.replace('/beach/""" + beachName + """');</script></html>""")
