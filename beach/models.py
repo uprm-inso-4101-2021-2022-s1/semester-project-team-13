@@ -77,7 +77,7 @@ class Rating(models.Model):
     boat = models.PositiveIntegerField(null = True)
     isClean = models.PositiveIntegerField(null = True)
     safety = models.PositiveIntegerField(null = True)
-    lifeguard = models.CharField(max_length = 3, choices=CHOICE_AVAILABLE, default='No')
+    lifeguard = models.CharField(max_length = 3, choices=CHOICE_AVAILABLE, default='No', null = True)
     #Rating belongs to beach:
     
     author = models.ForeignKey(User, on_delete = models.CASCADE, null = True)

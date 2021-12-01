@@ -7,5 +7,5 @@ from .models import Beach
 urlpatterns = [
     path('', views.display),
     path('<beachName>/', views.display, name='beach'),
-    path('<beachName>/average/', views.average)
+    path('<beachName>/review/', views.addReview)
 ]

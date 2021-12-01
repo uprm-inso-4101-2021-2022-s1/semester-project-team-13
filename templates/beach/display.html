@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% load crispy_forms_tags %}
 {% block content %}
 
     
@@ -26,26 +26,53 @@
 
 <article class="media content-section">
   <div class="media-body">
-    <form action="{% url 'beach' beach.name %}average"><button class="dropdown-item" type="btn">average</button></form></p>
-    <button class="btn btn-info " type="button" id="MenuButton1">
-      Write a review
-    </button>
+    <a data-toggle = "modal" data-target = "#reviewModal">
+      <form action="{% url 'beach' beach.name %}review" class = "form-inline" role = "form">
+      <div class = "form-group">
+        <button class="btn btn-info " type="button" id="MenuButton1">
+          Write a review
+        </button>
 
-    <a action="/writeReview">
-      <button class="btn btn-info " type="button" id="MenuButton2">
-        Add to Bucket List
-      </button>
+        <a action="/writeReview">
+          <button style="margin: 5px;" class="btn btn-info " type="button" id="MenuButton2">
+            Add to Bucket List
+          </button>
+        </a>
+        
+        <button class="btn btn-outline-info" type="button" id="MenuButton3">
+          Location 📍
+        </button>
+      </div>
+      </form>
     </a>
-    
-    <button class="btn btn-outline-info" type="button" id="MenuButton3">
-      Location 📍
-    </button>
   </div>
 </article>
 
+<div class="modal" tabindex="-1" role="dialog" id = "reviewModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Write your experience</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form method="POST">
+      <div class="modal-body">
+          {% csrf_token %} 
+            {{form | crispy}}
+          {% csrf_token %} 
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Save changes</button>
+      </div>
+    </form>
+    </div>
+  </div>
+</div>
 
-
-    
     {% for comment in comments %}
     <article class="media content-section">
         <div class="media-body">

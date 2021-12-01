@@ -1,18 +1,45 @@
 from os import name
+from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render
 from .models import Comment, Beach, Rating
+from .forms import RatingForm
 from django.http import HttpResponse
+from django.shortcuts import redirect, render
+from django import forms
+from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 # Can map URL's to views.
 commentAmount = 3
 
 def display(request, beachName='Jobos'):
-    context = {
-        'comments': Comment.objects.filter(beach__name=beachName)[:commentAmount], #front-end needs button that modifies the commentAmount variable
-        'beach': Beach.objects.filter(name=beachName).first,
-        'request' : request
+    
+    beach = Beach.objects.filter(name=beachName).first
+
+    if request.method == 'POST':
+        form = RatingForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, f'Your account has been created! You are now able to log in!')
+            return HttpResponse("""<html><script>window.location.replace('/beach/""" + beachName + """/');</script></html>""")
+
+    else: #get request
+        form = RatingForm(initial = {'beach' : beach, 'author':  request.user})
+        form.fields['beach'].widget = forms.HiddenInput()
+        form.fields['author'].widget = forms.HiddenInput()
+
+        context = {
+            'comments': Comment.objects.filter(beach__name=beachName)[:commentAmount], #front-end needs button that modifies the commentAmount variable
+            'beach': beach,
+            'form': form,
+            'request' : request
         #'comments': Comment.objects.all()[:69],
-    }
-    return render(request, 'beach/display.html', context)
+        }
+        return render(request, 'beach/display.html', context)
+
+@login_required
+def addReview(request, beachName):
+    
+    return render(request, 'beach/' + beachName, {})
 
 def average(request, beachName):
     currentBeach = Beach.objects.get(name=beachName)
