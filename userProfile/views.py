@@ -16,8 +16,8 @@ def userProfile(request, username='jeremy'): #if profile ID doesn't exist we mus
     bList = bListString.rsplit(",")
 
     recentComments = {}
-    ratings = Rating.objects.filter(author__username=username).order_by('date_posted')[:5]
-    comments = Comment.objects.filter(author__username=username).order_by('date_posted')[:5]
+    ratings = Rating.objects.filter(author__username=username).order_by('-date_posted')[:5]
+    comments = Comment.objects.filter(author__username=username).order_by('-date_posted')[:5]
     i=0
     for comment in comments:
         recentComments[ratings[i].id] = comment.content
