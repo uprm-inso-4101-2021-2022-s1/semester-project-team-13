@@ -1,11 +1,10 @@
 from django import forms
-from .models import Rating, Beach
-from django.contrib.auth.models import User
-from django.core.validators import MaxValueValidator, MinValueValidator
+from .models import Comment, Rating, Beach
 
 class RatingForm(forms.ModelForm):
     class Meta:
         model = Rating
+
         swim = forms.MultipleChoiceField(required=False)
         dive = forms.MultipleChoiceField(required=False)
         surf = forms.MultipleChoiceField(required=False)
@@ -27,5 +26,12 @@ class RatingForm(forms.ModelForm):
         
         fields = ['overall', 'swim', 'dive', 'surf', 'lounge', 'boat', 'isClean', 'safety', 'beach', 'author']
 
-        #comment = forms.CharField(widget=forms.Textarea)
-#class CommentForm(forms.ModelForm)
+       
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        content = forms.CharField(widget=forms.Textarea)
+        labels = {
+            "content" : 'Write your experience!'
+        }
+        fields = ['content', 'beach', 'author']

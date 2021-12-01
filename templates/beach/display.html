@@ -61,8 +61,9 @@
       </div>
       <form method="POST">
       <div class="modal-body">
-          {% csrf_token %} 
-            {{form | crispy}}
+          {% csrf_token %}
+            {{commentForm | crispy}} 
+            {{ratingForm | crispy}}
           {% csrf_token %} 
         
       </div>
@@ -81,7 +82,7 @@
           <div class="article-metadata">
                   <!-- Special href to redirect to user profile -->
             <a class="mr-2" href="{% url 'profile' comment.author %}">{{ comment.author }}</a>
-            <a>(overall rating)/10</a>
+            <a>{{userRatings | get:comment.author.username}} /10</a>
             <small class="text-muted">{{ comment.date_posted|date:"F d, Y" }}</small>
           </div>
           <!-- <h3><a class="article-title" href="#">{{ comment.id }}</a></h3> -->

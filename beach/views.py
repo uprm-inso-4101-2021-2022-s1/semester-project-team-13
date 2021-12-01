@@ -2,7 +2,7 @@ from os import name
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render
 from .models import Comment, Beach, Rating
-from .forms import RatingForm
+from .forms import CommentForm, RatingForm
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from django import forms
@@ -16,9 +16,11 @@ def display(request, beachName='Jobos'):
     beach = Beach.objects.filter(name=beachName).first
     prevRating = Rating.objects.filter(author__username = request.user.username).filter(beach__name = beachName)
     if request.method == 'POST':
-        form = RatingForm(request.POST)
-        if form.is_valid() and prevRating.count() == 0:
-            form.save()
+        ratingForm = RatingForm(request.POST)
+        commentForm = CommentForm(request.POST)
+        if ratingForm.is_valid() and commentForm.is_valid() and prevRating.count() == 0:
+            ratingForm.save()
+            commentForm.save()
             average(request, beachName)
             messages.success(request, f'Your review was submitted!')
         else:
@@ -26,14 +28,23 @@ def display(request, beachName='Jobos'):
         return HttpResponse("""<html><script>window.location.replace('/beach/""" + beachName + """/');</script></html>""")
 
     else: #get request
-        form = RatingForm(initial = {'beach' : beach, 'author':  request.user})
-        form.fields['beach'].widget = forms.HiddenInput()
-        form.fields['author'].widget = forms.HiddenInput()
+        ratingForm = RatingForm(initial = {'beach' : beach, 'author':  request.user})
+        commentForm = CommentForm(initial = {'beach' : beach, 'author':  request.user})
+        ratingForm.fields['beach'].widget = forms.HiddenInput()
+        ratingForm.fields['author'].widget = forms.HiddenInput()
+        commentForm.fields['beach'].widget = forms.HiddenInput()
+        commentForm.fields['author'].widget = forms.HiddenInput()
 
+        #Key -> Username, Value -> Rating
+        userRatings = {}
+        for rating in Rating.objects.filter(beach__name = beachName):
+            userRatings[rating.author.username] = rating.overall
         context = {
             'comments': Comment.objects.filter(beach__name=beachName)[:commentAmount], #front-end needs button that modifies the commentAmount variable
             'beach': beach,
-            'form': form,
+            'ratingForm': ratingForm,
+            'commentForm' : commentForm,
+            'userRatings' : userRatings,
             'request' : request
         #'comments': Comment.objects.all()[:69],
         }
