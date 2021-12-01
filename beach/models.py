@@ -21,6 +21,18 @@ CHOICE_AVAILABLE = (
     ('Yes', 'Yes'), 
     ('No', 'No'))
 
+CHOICE_NUM = (
+    (1, '1'),
+    (2, '2'),
+    (3, '3'),
+    (4, '4'),
+    (5, '5'),
+    (6, '6'),
+    (7, '7'),
+    (8, '8'),
+    (9, '9'),
+    (10, '10')
+)
 class Beach(models.Model):
     name = models.CharField(max_length = 60)
     img = models.ImageField(upload_to='beach_pic', null = True)
@@ -28,14 +40,14 @@ class Beach(models.Model):
     region = models.CharField(max_length = 2, choices=CHOICE_REGIONS) # N, NE, E, SE, S, SW, W, NW
     #Ratings
     
-    overallRating = models.DecimalField(max_digits=3, decimal_places=1, null = True)
-    swimRating = models.DecimalField(max_digits=3, decimal_places=1, null = True)
-    diveRating = models.DecimalField(max_digits=3, decimal_places=1, null = True)
-    surfRating = models.DecimalField(max_digits=3, decimal_places=1, null = True)
-    loungeRating = models.DecimalField(max_digits=3, decimal_places=1, null = True)
-    boatRating = models.DecimalField(max_digits=3, decimal_places=1, null = True)
-    isCleanRating = models.DecimalField(max_digits=3, decimal_places=1, null = True)
-    safetyRating = models.DecimalField(max_digits=3, decimal_places=1, null = True)
+    overallRating = models.DecimalField(max_digits=3, decimal_places=1, null = True, default=0)
+    swimRating = models.DecimalField(max_digits=3, decimal_places=1, null = True, default=0)
+    diveRating = models.DecimalField(max_digits=3, decimal_places=1, null = True, default=0)
+    surfRating = models.DecimalField(max_digits=3, decimal_places=1, null = True, default=0)
+    loungeRating = models.DecimalField(max_digits=3, decimal_places=1, null = True, default=0)
+    boatRating = models.DecimalField(max_digits=3, decimal_places=1, null = True, default=0)
+    isCleanRating = models.DecimalField(max_digits=3, decimal_places=1, null = True, default=0)
+    safetyRating = models.DecimalField(max_digits=3, decimal_places=1, null = True, default=0)
     
     lifeguardRating = models.CharField(max_length = 3, choices=CHOICE_AVAILABLE, default= 'No')
 
@@ -69,14 +81,14 @@ class Comment(models.Model):
 
 class Rating(models.Model):
     #Ratings
-    overall = models.PositiveIntegerField(null = True)
-    swim = models.PositiveIntegerField(null = True)
-    dive = models.PositiveIntegerField(null = True)
-    surf = models.PositiveIntegerField(null = True)
-    lounge = models.PositiveIntegerField(null = True)
-    boat = models.PositiveIntegerField(null = True)
-    isClean = models.PositiveIntegerField(null = True)
-    safety = models.PositiveIntegerField(null = True)
+    overall = models.PositiveIntegerField(null = True, default=10, choices=CHOICE_NUM)
+    swim = models.PositiveIntegerField(blank = True, null=True, choices=CHOICE_NUM)
+    dive = models.PositiveIntegerField(blank= True, null = True, choices=CHOICE_NUM)
+    surf = models.PositiveIntegerField(blank= True, null = True, choices=CHOICE_NUM)
+    lounge = models.PositiveIntegerField(blank= True, null = True, choices=CHOICE_NUM)
+    boat = models.PositiveIntegerField(blank= True, null = True, choices=CHOICE_NUM)
+    isClean = models.PositiveIntegerField(blank= True, null = True, choices=CHOICE_NUM)
+    safety = models.PositiveIntegerField(blank= True, null = True, choices=CHOICE_NUM)
     lifeguard = models.CharField(max_length = 3, choices=CHOICE_AVAILABLE, default='No', null = True)
     #Rating belongs to beach:
     
