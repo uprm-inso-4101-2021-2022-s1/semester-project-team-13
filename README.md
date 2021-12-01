@@ -9,8 +9,8 @@
 4. In the terminal, type : pip install pipenv
 5. In the terminal, type: pipenv install django
 6. In the terminal, type: pipenv shell.
-7. In the terminal, type: pip install django-crispy-forms
-8. Install the latest version of Pillow, type in the terminal: pip install Pillow==8.3.2
+7. Install the latest version of Pillow, type in the terminal: pip install Pillow==8.3.2
+8. In the terminal, type: pip install django-crispy-forms
 9. Open the terminal inside of VSCode, run the command:  
 ![runserver](https://user-images.githubusercontent.com/47163056/134789149-d3c01a17-f852-45ae-af9f-1c1f574b1049.png)  
 Running the command should return something similar to:  
