@@ -49,7 +49,7 @@
             <article class="media content-section">
               <div class="media-body">
                 <div class="article-metadata">
-                  <p><b>For <a class="mr-2" href="">{{rating.beach}}:</a></b></p>
+                  <p><b>For <a class="mr-2" href="{% url 'beach' rating.beach.name %}">{{rating.beach.name | title}}:</a></b></p>
                   <!-- need beach -->
                   <a class="mr-2" href="">{{profile.user.username}}</a>
                   <a>{{rating.overall}}/10</a>
