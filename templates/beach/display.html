@@ -7,11 +7,12 @@
 <article class="media content-section">
   <div class="media-body">
     <div class="article-metadata">
-      
       <p><h1>{{ beach | title}} {{beach.overallRating}}/10</h1></p>
-      <img src="{{beach.img.url}}" alt="image not found" width="70%">
-      
     </div>
+    <div>
+      <img src="{{beach.img.url}}" alt="image not found" width="69%" align="right">
+    </div>
+    <div>
       <div><a> Swimming: {{ beach.swimRating}}</a></div>
       <div><a> Diving: {{ beach.diveRating}}</a></div>
       <div><a> Surfing: {{ beach.surfRating}}</a></div>
@@ -20,6 +21,7 @@
       <div><a> Cleanliness: {{ beach.isCleanRating}}</a></div>
       <div><a> Safety: {{ beach.safetyRating}}</a></div>
       <div><a> Lifeguard: {{ beach.lifeguardRating}}</a></div>
+    </div>
   </div>
 
 </article>
