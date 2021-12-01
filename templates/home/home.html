@@ -124,9 +124,12 @@
   </div>
 </article>
 
-<h1>Top Beaches: </h1>
 
-<div>
+<article class="media content-section" style="background-color: aquamarine; border-color: white;">
+  <div class="media-body">
+    <div class="article-metadata">
+      <h1>Top Beaches: </h1>
+    </div>
     {% for beach in topOverallBeaches %}
     <article class="media content-section">
         <div class="media-body">
@@ -161,9 +164,9 @@
           </div>
         </div>
       </article>
-  {% endfor %}
-</div>
-
+      {% endfor %}
+    </div>
+  </article>
 {% endblock content %}
 
 
